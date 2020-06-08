@@ -13,10 +13,10 @@ wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_TEXT_ENTER(ID_TextBox, MyFrame::OnTxt1Enter)
 wxEND_EVENT_TABLE()
 
-MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
-        : wxFrame(NULL, wxID_ANY, title, pos, size)
+MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size, long style)
+        : wxFrame(NULL, wxID_ANY, title, pos, size, style)
 {
-    m_btn1 = new wxButton(this, ID_Button, "Click Me", wxPoint(10, 10), wxSize(150, 50));
+    m_btn1 = new wxButton(this, ID_Button, "Click Me", wxPoint(75, 10), wxSize(150, 50));
     m_txt1 = new wxTextCtrl(this, ID_TextBox, "", wxPoint(10, 70), wxSize(300, 30), wxTE_PROCESS_ENTER);
     m_list1 = new wxListBox(this, wxID_ANY, wxPoint(10, 110), wxSize(300, 300));
 
