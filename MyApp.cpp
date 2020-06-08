@@ -9,4 +9,3 @@ bool MyApp::OnInit()
     return true;
 }
 
-

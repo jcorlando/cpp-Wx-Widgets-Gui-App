@@ -16,6 +16,29 @@ wxEND_EVENT_TABLE()
 MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size, long style)
         : wxFrame(NULL, wxID_ANY, title, pos, size, style)
 {
+    //    Password checking 
+    //    Password checking
+    wxPasswordEntryDialog *m_pword = new wxPasswordEntryDialog(this, "Hellow World", wxGetPasswordFromUserPromptStr,\
+                                                        wxEmptyString, wxTextEntryDialogStyle, wxDefaultPosition);
+    
+    if(m_pword->ShowModal() == wxID_OK)
+    {
+        if(m_pword->GetValue() == "password") {}
+        else
+        {
+            m_pword->Destroy();
+            this->Destroy();
+        }
+    }else
+    {
+        m_pword->Destroy();
+        this->Destroy();
+    }
+
+    m_pword->Destroy();
+    //    End of password checking
+    //    End of password checking
+
     m_btn1 = new wxButton(this, ID_Button, "Click Me", wxPoint(75, 10), wxSize(150, 50));
     m_txt1 = new wxTextCtrl(this, ID_TextBox, "", wxPoint(10, 70), wxSize(300, 30), wxTE_PROCESS_ENTER);
     m_list1 = new wxListBox(this, wxID_ANY, wxPoint(10, 110), wxSize(300, 300));
@@ -36,6 +59,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size, 
 
     CreateStatusBar();
     SetStatusText( "Welcome to My App!" );
+
 }
 
 void MyFrame::OnExit(wxCommandEvent& event)
